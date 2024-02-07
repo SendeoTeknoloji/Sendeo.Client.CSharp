@@ -12,7 +12,7 @@ public class TrackDeliveryRequest
 	/// </summary>
 	/// <remarks> Gönderi takip numarası veya gönderi müşteri referans numarasından en az birisi istekte belirtilmelidir. </remarks>
 	[JsonProperty("trackingNo")]
-	public int? TrackingNo { get; set; }
+	public long? TrackingNo { get; set; }
 
 	/// <summary>
 	/// Gönderi müşteri referans numarası.

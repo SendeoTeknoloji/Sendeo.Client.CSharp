@@ -425,7 +425,7 @@ public class Program
 
 			Console.WriteLine("Gönderi bilgileri:");
 
-			ConsoleUtilities.WriteTupleIfNotNullOrWhiteSpace("Kargo takip no", response.Data.result.TrackingNumber);
+			ConsoleUtilities.WriteTupleIfNotNullOrWhiteSpace("Kargo takip no", response.Data.result.TrackingNumber?.ToString());
 			ConsoleUtilities.WriteTupleIfNotNullOrWhiteSpace("Kargo takip bağlantısı", response.Data.result.TrackingUrl);
 			ConsoleUtilities.WriteTupleIfNotNullOrWhiteSpace("Barkod", response.Data.result.Barcode);
 			ConsoleUtilities.WriteTupleIfNotNullOrWhiteSpace("Barkod (ZPL)", response.Data.result.BarcodeZpl);
@@ -470,7 +470,7 @@ public class Program
 	{
 		var request = new TrackDeliveryRequest
 		{
-			TrackingNo = ConsoleUtilities.ObtainInputAsInteger("Kargo takip no"),
+			TrackingNo = ConsoleUtilities.ObtainInputAsLong("Kargo takip no"),
 			ReferenceNo = ConsoleUtilities.ObtainInput("Müşteri referans no")
 		};
 
@@ -553,7 +553,7 @@ public class Program
 		var request = new CancelDeliveryRequest
 		{
 			TrackingNo = ConsoleUtilities.ObtainInputAsInteger("Kargo takip no"),
-			CustomerReferenceNo = ConsoleUtilities.ObtainInput("Müşteri referans no")
+            CustomerReferenceNo = ConsoleUtilities.ObtainInput("Müşteri referans no")
 		};
 
 		Console.WriteLine("Gönderi iptal isteği gönderiliyor...");

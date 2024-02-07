@@ -8,7 +8,7 @@ public class SetDeliveryResponse
 	/// <summary>
 	/// Gönderi takip numarası.
 	/// </summary>
-	public string? TrackingNumber { get; set; }
+	public long? TrackingNumber { get; set; }
 
 	/// <summary>
 	/// Gönderi takibinin yapılabileceği URL adresi.

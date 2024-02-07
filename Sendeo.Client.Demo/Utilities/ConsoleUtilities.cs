@@ -68,14 +68,34 @@
 			}
 
 			return result;
-		}
+        }
 
-		/// <summary>
-		/// Kullanıcıdan boş olmayan bir girdi alır ve tam sayıya dönüştürür.
-		/// </summary>
-		/// <param name="inputName"> Alınacak girdinin adı. </param>
-		/// <returns> Kullanıcıdan alınan girdinin tam sayıya dönüştürülmüş hâlini döndürür. </returns>
-		public static int ObtainNonEmptyInputAsInteger(string inputName)
+        /// <summary>
+        /// Kullanıcıdan bir girdi alır ve uzun tam sayıya dönüştürür.
+        /// </summary>
+        /// <param name="inputName"> Alınacak girdinin adı. </param>
+        /// <param name="allowEmptyInput"> <see langword="null"/> olan veya beyaz boşluk karakterlerinden oluşan girdiye izin verilip verilmeyeceğini belirten bayrak. </param>
+        /// <param name="isOptional"> Girdinin isteğe bağlı olup olmadığını belirten bayrak. </param>
+        /// <returns> Kullanıcıdan alınan girdinin uzun tam sayıya dönüştürülmüş hâlini döndürür. </returns>
+        public static long ObtainInputAsLong(string inputName, bool allowEmptyInput = true, bool isOptional = false)
+        {
+            var conversion = long.TryParse(ObtainInput(inputName, allowEmptyInput, isOptional), out var result);
+
+            while (!conversion)
+            {
+                Console.WriteLine("Geçersiz bir değer girdiniz. Lütfen yeniden deneyin.");
+                conversion = long.TryParse(ObtainNonEmptyInput(inputName), out result);
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Kullanıcıdan boş olmayan bir girdi alır ve tam sayıya dönüştürür.
+        /// </summary>
+        /// <param name="inputName"> Alınacak girdinin adı. </param>
+        /// <returns> Kullanıcıdan alınan girdinin tam sayıya dönüştürülmüş hâlini döndürür. </returns>
+        public static int ObtainNonEmptyInputAsInteger(string inputName)
 		{
 			return ObtainInputAsInteger(inputName, false);
 		}
