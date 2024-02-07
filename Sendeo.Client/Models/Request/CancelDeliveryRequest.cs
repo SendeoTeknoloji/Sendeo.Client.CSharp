@@ -9,7 +9,7 @@ public class CancelDeliveryRequest
 	/// Gönderinin takip numarası.
 	/// </summary>
 	/// <remarks> Takip numarası ve müşteri referans numarasından bir tanesinin verilmesi gerekli ve yeterlidir. </remarks>
-	public int? TrackingNo { get; set; }
+	public long? TrackingNo { get; set; }
 
 	/// <summary>
 	/// Gönderinin müşteri referans numarası.

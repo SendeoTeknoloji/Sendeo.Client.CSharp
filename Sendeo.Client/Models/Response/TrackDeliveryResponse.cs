@@ -10,7 +10,7 @@ public class TrackDeliveryResponse
 	/// <summary>
 	/// Gönderi takip numarası.
 	/// </summary>
-	public int TrackingNo { get; set; }
+	public long TrackingNo { get; set; }
 
 	/// <summary>
 	/// Gönderi referans numarası.
